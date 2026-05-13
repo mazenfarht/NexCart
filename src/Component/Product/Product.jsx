@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
+import { nostify } from "../Utile/notify";
 
 export default function Product({ product }) {
+  let { changeCart } = useContext(CartContext);
+  async function addProduct(productId) {
+    try {
+      let response = await changeCart(productId);
+      console.log("Added to cart:", response);
+      console.log(response.status);
+      if (response.status === "success") {
+        nostify("Product added successfully", "success");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
       {product.map((item) => {
@@ -22,7 +37,10 @@ export default function Product({ product }) {
                   <span>{item.ratingsAverage}</span>
                 </div>
               </div>
-              <button className="btn bg-main  text-white w-50 my-3  ">
+              <button
+                onClick={() => addProduct(item._id)}
+                className="btn bg-main  text-white w-50 my-3  "
+              >
                 Add To Cart
               </button>
             </div>

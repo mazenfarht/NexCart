@@ -1,19 +1,15 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import axios from "axios";
 import { baseUrl } from "./../Utile/baseUrl";
 import * as Yup from "yup";
+import { nostify } from "../Utile/notify";
 
 export default function Login() {
   let navigate = useNavigate();
   let [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
-  const nostify = (msg, type) => {
-    toast[type](msg);
-  };
 
   let validationSchema = Yup.object({
     email: Yup.string().email().required(),
@@ -35,6 +31,7 @@ export default function Login() {
             setLoading(false);
             navigate("/home");
             nostify("Success", "success");
+            localStorage.setItem("token", res.data.token);
           }
         })
         .catch((error) => {

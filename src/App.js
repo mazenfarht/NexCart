@@ -8,6 +8,8 @@ import Login from "./Component/Login/Login";
 import Register from "./Component/Register/Register";
 import NotFoundPage from "./Component/NotFoundPage/NotFoundPage";
 import { ToastContainer } from "react-toastify";
+import CartContextProvider from "./Component/Context/CartContext";
+import Cart from "./Component/Cart/Cart";
 export default function App() {
   let routes = createBrowserRouter([
     {
@@ -20,6 +22,7 @@ export default function App() {
         { path: "product-detailes/:id", element: <ProductDetailes /> },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
+        { path: "cart", element: <Cart /> },
         { path: "*", element: <NotFoundPage /> },
       ],
     },
@@ -27,7 +30,9 @@ export default function App() {
   return (
     <>
       <ToastContainer />
-      <RouterProvider router={routes} />
+      <CartContextProvider>
+        <RouterProvider router={routes} />
+      </CartContextProvider>
     </>
   );
 }

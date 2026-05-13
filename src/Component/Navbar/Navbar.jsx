@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../img/logo.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
 
 export default function Navbar() {
+  let cartCount = useContext(CartContext);
+  console.log("nav");
+
   return (
     <nav className="navbar navbar-expand-lg bg-black">
       <div className="container-fluid">
@@ -44,16 +48,16 @@ export default function Navbar() {
           {/* Right */}
           <ul className="navbar-nav ms-auto align-items-lg-center gap-2">
             <li className="nav-item">
-              <NavLink
+              <Link
                 className="btn text-white position-relative border-0 d-flex align-items-center"
-                to="/"
+                to="/cart"
               >
                 Cart
                 <i className="fa-solid fa-cart-shopping ms-2" />
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
-                  10
+                  {cartCount.cartCount}
                 </span>
-              </NavLink>
+              </Link>
             </li>
 
             <li className="nav-item">
