@@ -379,6 +379,9 @@ a:hover {
   font-size: 14px;
 }
 
+.cart .btn:hover {
+  background-color: #098009 !important;
+}
 /* ================= DELETE ================= */
 
 .cart-delete-btn {

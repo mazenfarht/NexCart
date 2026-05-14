@@ -14,7 +14,7 @@ export default function StoreContextProvider({ children }) {
         `${baseUrl}/cart`,
         { productId },
         {
-          headers: { token: token },
+          headers: { token },
         }
       )
       .then((res) => {
@@ -46,13 +46,27 @@ export default function StoreContextProvider({ children }) {
       .then((res) => res.data)
       .catch((error) => error);
   }
+
+  function updateQty(productId, count) {
+    let token = localStorage.getItem("token");
+    axios
+      .post(
+        `${baseUrl}/cart/${productId}`,
+        { count },
+        {
+          headers: { token },
+        }
+      )
+      .then((res) => res.data)
+      .catch((error) => error);
+  }
   useEffect(() => {
     getCart();
   }, []);
   return (
     <>
       <StoreContext.Provider
-        value={{ changeCart, getCart, cartCount, deleteProduct }}
+        value={{ changeCart, getCart, cartCount, deleteProduct, updateQty }}
       >
         {children}
       </StoreContext.Provider>
