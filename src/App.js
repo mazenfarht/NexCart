@@ -8,7 +8,7 @@ import Login from "./Component/Login/Login";
 import Register from "./Component/Register/Register";
 import NotFoundPage from "./Component/NotFoundPage/NotFoundPage";
 import { ToastContainer } from "react-toastify";
-import CartContextProvider from "./Component/Context/CartContext";
+import StoreContextProvider from "./Component/Context/StoreContext";
 import Cart from "./Component/Cart/Cart";
 export default function App() {
   let routes = createBrowserRouter([
@@ -30,9 +30,9 @@ export default function App() {
   return (
     <>
       <ToastContainer />
-      <CartContextProvider>
+      <StoreContextProvider>
         <RouterProvider router={routes} />
-      </CartContextProvider>
+      </StoreContextProvider>
     </>
   );
 }

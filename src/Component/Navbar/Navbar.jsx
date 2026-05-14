@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import logo from "../../img/logo.svg";
 import { Link, NavLink } from "react-router-dom";
-import { CartContext } from "../Context/CartContext";
+import { StoreContext } from "../Context/StoreContext";
 
 export default function Navbar() {
-  let cartCount = useContext(CartContext);
+  let { cartCount } = useContext(StoreContext);
+  console.log(cartCount);
+
   console.log("nav");
 
   return (
@@ -55,7 +57,7 @@ export default function Navbar() {
                 Cart
                 <i className="fa-solid fa-cart-shopping ms-2" />
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
-                  {cartCount.cartCount}
+                  {cartCount}
                 </span>
               </Link>
             </li>

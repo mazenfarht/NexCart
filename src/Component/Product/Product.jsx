@@ -1,20 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../Context/CartContext";
+import { StoreContext } from "../Context/StoreContext";
 import { nostify } from "../Utile/notify";
 
 export default function Product({ product }) {
-  let { changeCart } = useContext(CartContext);
+  let { changeCart } = useContext(StoreContext);
+  let [loadingId, setLoadinId] = useState(null);
+
   async function addProduct(productId) {
     try {
+      setLoadinId(productId);
       let response = await changeCart(productId);
       console.log("Added to cart:", response);
-      console.log(response.status);
-      if (response.status === "success") {
-        nostify("Product added successfully", "success");
-      }
+      nostify("Product added successfully", "success");
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoadinId(null);
     }
   }
   return (
@@ -37,11 +39,20 @@ export default function Product({ product }) {
                   <span>{item.ratingsAverage}</span>
                 </div>
               </div>
+
               <button
                 onClick={() => addProduct(item._id)}
                 className="btn bg-main  text-white w-50 my-3  "
+                disabled={loadingId === item._id}
               >
-                Add To Cart
+                {loadingId === item._id ? (
+                  <>
+                    <i className="fa fa-spinner fa-spin me-2"></i>
+                    Adding...
+                  </>
+                ) : (
+                  "Add To Cart"
+                )}
               </button>
             </div>
           </div>
