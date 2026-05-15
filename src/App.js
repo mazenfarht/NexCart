@@ -10,6 +10,7 @@ import NotFoundPage from "./Component/NotFoundPage/NotFoundPage";
 import { ToastContainer } from "react-toastify";
 import StoreContextProvider from "./Component/Context/StoreContext";
 import Cart from "./Component/Cart/Cart";
+import CheckOut from "./Component/CheckOut/CheckOut";
 export default function App() {
   let routes = createBrowserRouter([
     {
@@ -22,6 +23,7 @@ export default function App() {
         { path: "product-detailes/:id", element: <ProductDetailes /> },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
+        { path: "checkout", element: <CheckOut /> },
         { path: "cart", element: <Cart /> },
         { path: "*", element: <NotFoundPage /> },
       ],

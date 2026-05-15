@@ -5,7 +5,7 @@ import { nostify } from "../Utile/notify";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-  let { getCart, deleteProduct } = useContext(StoreContext);
+  let { getCart, deleteProduct, updateQty } = useContext(StoreContext);
   let [cart, setCart] = useState([]);
   let [priceTotal, setPriceTotal] = useState([]);
   let [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ export default function Cart() {
 
   async function updateProductQty(productId, count) {
     try {
-      let response = await deleteProduct(productId, count);
+      let response = await updateQty(productId, count);
       setCart(response.data.products);
       setPriceTotal(response.data.totalCartPrice);
     } catch (error) {
@@ -169,6 +169,9 @@ export default function Cart() {
               </div>
             );
           })}
+          <Link className="btn bg-main text-white" to="/checkout">
+            Checkout
+          </Link>
         </div>
       </div>
     </>

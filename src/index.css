@@ -81,6 +81,7 @@ a:hover {
 .main-btn {
   background: var(--main-color);
   color: #fff !important;
+
   border: none;
   padding: 10px 16px;
   border-radius: 10px;
@@ -206,35 +207,6 @@ a:hover {
   border-radius: 10px;
   overflow: hidden;
 }
-
-/* ================= ARROWS ================= */
-/* 
-.slick-prev,
-.slick-next {
-  width: 45px !important;
-  height: 45px !important;
-  z-index: 9999 !important;
-  background: rgba(0, 0, 0, 0.4) !important;
-  border-radius: 50%;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-.slick-prev {
-  left: 15px !important;
-}
-
-.slick-next {
-  right: 15px !important;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  font-size: 22px !important;
-  opacity: 1 !important;
-}
-
 
 /* hover effect */
 .slick-prev:hover,
