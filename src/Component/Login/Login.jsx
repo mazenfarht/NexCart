@@ -1,15 +1,17 @@
 import { useFormik } from "formik";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "./../Utile/baseUrl";
 import * as Yup from "yup";
 import { nostify } from "../Utile/notify";
+import { StoreContext } from "../Context/StoreContext";
 
 export default function Login() {
   let navigate = useNavigate();
   let [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  let { login } = useContext(StoreContext);
 
   let validationSchema = Yup.object({
     email: Yup.string().email().required(),
@@ -29,6 +31,7 @@ export default function Login() {
         .then((res) => {
           if (res.status === 200) {
             setLoading(false);
+            login(res.data.token);
             navigate("/home");
             nostify("Success", "success");
             localStorage.setItem("token", res.data.token);

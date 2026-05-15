@@ -7,6 +7,8 @@ export let StoreContext = createContext();
 export default function StoreContextProvider({ children }) {
   let [cartCount, setcartCount] = useState(0);
   let [cartId, setCartId] = useState(null);
+  let [userToken, setUserToken] = useState(null);
+  let [isLoading, setIsLoading] = useState(true);
 
   //function is send data in product and save in localstorage
   function changeCart(productId) {
@@ -78,8 +80,24 @@ export default function StoreContextProvider({ children }) {
       .catch((error) => error);
   }
 
+  function login(token) {
+    localStorage.setItem("token", token);
+    setUserToken(token);
+    getCart(); // 🔥 مهم جدًا
+  }
+
+  function logout() {
+    localStorage.removeItem("token");
+    setUserToken(null);
+  }
+
   useEffect(() => {
-    getCart();
+    let token = localStorage.getItem("token");
+    if (token) {
+      setUserToken(token);
+      getCart();
+    }
+    setIsLoading(false);
   }, []);
   return (
     <>
@@ -92,6 +110,10 @@ export default function StoreContextProvider({ children }) {
           onlinePayment,
           updateQty,
           cartId,
+          login,
+          logout,
+          userToken,
+          isLoading,
         }}
       >
         {children}

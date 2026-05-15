@@ -11,20 +11,56 @@ import { ToastContainer } from "react-toastify";
 import StoreContextProvider from "./Component/Context/StoreContext";
 import Cart from "./Component/Cart/Cart";
 import CheckOut from "./Component/CheckOut/CheckOut";
+import ProtectedRoute from "./Component/ProtectedRoute/ProtectedRoute";
 export default function App() {
   let routes = createBrowserRouter([
     {
       path: "",
       element: <Layout />,
       children: [
-        { index: true, element: <HomePage /> },
-        { path: "home", element: <HomePage /> },
-        { path: "products", element: <Products /> },
+        {
+          index: true,
+          element: (
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "home",
+          element: (
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "products",
+          element: (
+            <ProtectedRoute>
+              <Products />
+            </ProtectedRoute>
+          ),
+        },
         { path: "product-detailes/:id", element: <ProductDetailes /> },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
-        { path: "checkout", element: <CheckOut /> },
-        { path: "cart", element: <Cart /> },
+        {
+          path: "checkout",
+          element: (
+            <ProtectedRoute>
+              <CheckOut />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "cart",
+          element: (
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          ),
+        },
         { path: "*", element: <NotFoundPage /> },
       ],
     },

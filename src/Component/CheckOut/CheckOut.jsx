@@ -38,7 +38,7 @@ export default function CheckOut() {
       phone: "",
       city: "",
     },
-    validationSchema: checkoutValidate, // ✅ مهم
+    validationSchema: checkoutValidate,
     onSubmit: onlinePaymentMethod,
   });
   return (
