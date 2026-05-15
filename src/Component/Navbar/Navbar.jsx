@@ -5,7 +5,7 @@ import { StoreContext } from "../Context/StoreContext";
 
 export default function Navbar() {
   let { cartCount, userToken, logout } = useContext(StoreContext);
-  const navigate = useNavigate(); // ✅ جوه الكومبوننت
+  const navigate = useNavigate();
 
   function handleLogout() {
     logout();
@@ -13,93 +13,157 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg bg-black">
-      <div className="container-fluid">
-        {/* Logo */}
-        <NavLink className="navbar-brand" to="/">
-          <img src={logo} alt="Logo" />
-        </NavLink>
+    <nav className="navbar navbar-dark bg-black">
+      <div className="container-fluid d-flex align-items-center">
+        {/* LEFT SIDE (LOGO + LINKS) */}
+        <div className="d-flex align-items-center gap-4">
+          {/* LOGO */}
+          <NavLink className="navbar-brand m-0" to="/">
+            <img src={logo} alt="Logo" />
+          </NavLink>
 
-        {/* Toggler */}
+          {/* LINKS */}
+          <div className="d-none d-lg-flex align-items-center gap-3">
+            <NavLink className="nav-link text-white" to="/home">
+              Home
+            </NavLink>
+
+            <NavLink className="nav-link text-white" to="/products">
+              Products
+            </NavLink>
+
+            <NavLink className="nav-link text-white" to="/">
+              Categories
+            </NavLink>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE (CART + LOGOUT) */}
+        <div className="d-none d-lg-flex align-items-center gap-3 ms-auto">
+          {/* CART */}
+          <Link
+            className="btn text-white position-relative border-0 d-flex align-items-center"
+            to="/cart"
+          >
+            Cart
+            <i className="fa-solid fa-cart-shopping ms-2" />
+            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+              {cartCount}
+            </span>
+          </Link>
+
+          {/* LOGOUT */}
+          {userToken && (
+            <button className="btn text-white border-0" onClick={handleLogout}>
+              Logout
+            </button>
+          )}
+
+          {/* LOGIN / REGISTER (optional) */}
+          {!userToken && (
+            <>
+              <NavLink className="nav-link text-white" to="/login">
+                Login
+              </NavLink>
+
+              <NavLink className="nav-link text-white" to="/register">
+                Register
+              </NavLink>
+            </>
+          )}
+        </div>
+
+        {/* MOBILE TOGGLER */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler d-lg-none ms-auto"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+      </div>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
+      {/* MOBILE OFFCANVAS (unchanged idea) */}
+      <div
+        className="offcanvas offcanvas-end bg-black text-white d-lg-none"
+        id="mobileMenu"
+      >
+        <div className="offcanvas-header">
+          <h5 className="text-white">Menu</h5>
+          <button
+            className="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+          ></button>
+        </div>
+
+        <div className="offcanvas-body d-flex flex-column gap-3">
           {userToken ? (
             <>
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <NavLink className="nav-link active" to="/home">
-                    Home
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/products">
-                    Products
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/">
-                    Categories
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className="btn text-white position-relative border-0 d-flex align-items-center"
-                    to="/cart"
-                  >
-                    Cart
-                    <i className="fa-solid fa-cart-shopping ms-2" />
-                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
-                      {cartCount}
-                    </span>
-                  </Link>
-                </li>
-              </ul>
-              <ul className="navbar-nav ms-auto align-items-lg-center gap-2">
-                <li className="nav-item">
-                  <Link
-                    className="btn text-white position-relative border-0 d-flex align-items-center"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </Link>
-                </li>
-              </ul>
+              {/* LINKS */}
+              <NavLink
+                className="nav-link text-white"
+                to="/home"
+                data-bs-dismiss="offcanvas"
+              >
+                Home
+              </NavLink>
+
+              <NavLink
+                className="nav-link text-white"
+                to="/products"
+                data-bs-dismiss="offcanvas"
+              >
+                Products
+              </NavLink>
+
+              <NavLink
+                className="nav-link text-white"
+                to="/"
+                data-bs-dismiss="offcanvas"
+              >
+                Categories
+              </NavLink>
+
+              <hr className="text-white" />
+
+              {/* CART */}
+              <Link
+                className="btn text-white position-relative border-0 text-start"
+                to="/cart"
+                data-bs-dismiss="offcanvas"
+              >
+                Cart
+                <span className="ms-2 badge bg-warning">{cartCount}</span>
+              </Link>
+
+              {/* LOGOUT */}
+              <button
+                className="btn text-white border-0 text-start"
+                onClick={handleLogout}
+                data-bs-dismiss="offcanvas"
+              >
+                Logout
+              </button>
             </>
           ) : (
-            <ul className="navbar-nav ms-auto align-items-lg-center gap-2">
-              {/* <li className="nav-item">
-                <Link
-                  className="btn text-white position-relative border-0 d-flex align-items-center"
-                  to="/cart"
-                >
-                  Cart
-                  <i className="fa-solid fa-cart-shopping ms-2" />
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
-                    {cartCount}
-                  </span>
-                </Link>
-              </li> */}
+            <>
+              <NavLink
+                className="nav-link text-white"
+                to="/login"
+                data-bs-dismiss="offcanvas"
+              >
+                Login
+              </NavLink>
 
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/login">
-                  Login
-                </NavLink>
-              </li>
-
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/register">
-                  Register
-                </NavLink>
-              </li>
-            </ul>
+              <NavLink
+                className="nav-link text-white"
+                to="/register"
+                data-bs-dismiss="offcanvas"
+              >
+                Register
+              </NavLink>
+            </>
           )}
         </div>
       </div>

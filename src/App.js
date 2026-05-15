@@ -12,6 +12,7 @@ import StoreContextProvider from "./Component/Context/StoreContext";
 import Cart from "./Component/Cart/Cart";
 import CheckOut from "./Component/CheckOut/CheckOut";
 import ProtectedRoute from "./Component/ProtectedRoute/ProtectedRoute";
+import CategoriePage from "./Component/Categories/CategoriePage";
 export default function App() {
   let routes = createBrowserRouter([
     {
@@ -43,6 +44,7 @@ export default function App() {
           ),
         },
         { path: "product-detailes/:id", element: <ProductDetailes /> },
+        { path: "categoriesPage/:id", element: <CategoriePage /> },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
         {

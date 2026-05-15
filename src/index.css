@@ -461,3 +461,11 @@ a:hover {
 .bob-hover:hover {
   animation: bob-horizontal 0.4s ease-in-out;
 }
+
+.categories a h6 {
+  transition: 0.3s;
+}
+
+.categories a:hover h6 {
+  color: var(--main-color) !important;
+}

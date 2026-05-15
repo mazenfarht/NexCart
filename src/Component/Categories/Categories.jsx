@@ -2,14 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { baseUrl } from "../Utile/baseUrl.js";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 export default function Categories() {
-  const [categorie, subcategorie] = useState([]);
+  const [categorie, sutcategorie] = useState([]);
 
   const getAllCategories = async () => {
     let { data } = await axios.get(`${baseUrl}/categories`);
 
-    subcategorie(data.data);
+    sutcategorie(data.data);
   };
 
   useEffect(() => {
@@ -58,7 +59,7 @@ export default function Categories() {
   };
   return (
     <>
-      <div className="container my-5">
+      <div className="container my-5 categories">
         <h3 className="mb-3">Shop Popular Categories</h3>
 
         <Slider {...settings}>
@@ -72,7 +73,13 @@ export default function Categories() {
                   height={180}
                   alt="cate"
                 />
-                <h6 className="mt-2 text-white">{item.name}</h6>
+                <Link
+                  to={`/categoriesPage/${item._id}`}
+                  className="text-decoration-none text-white"
+                >
+                  {" "}
+                  <h6 className="mt-2 text-white">{item.name}</h6>
+                </Link>
               </div>
             );
           })}
