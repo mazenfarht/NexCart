@@ -74,7 +74,7 @@ export default function App() {
           ),
         },
         {
-          path: "contactus",
+          path: "contact-us",
           element: (
             <ProtectedRoute>
               <ContactUs />

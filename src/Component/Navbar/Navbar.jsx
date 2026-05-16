@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import logo from "../../img/logo.svg";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { StoreContext } from "../Context/StoreContext";
-import Nabaer from "./Navbar.css";
+import "./Navbar.css";
 export default function Navbar() {
   const { cartCount, userToken, logout } = useContext(StoreContext);
 
@@ -54,7 +54,7 @@ export default function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link nav-modern-link" to="/contactus">
+                <NavLink className="nav-link nav-modern-link" to="/contact-us">
                   Contact-Us
                 </NavLink>
               </li>
