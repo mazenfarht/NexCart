@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "./../Utile/baseUrl";
 import * as Yup from "yup";
-import { nostify } from "../Utile/notify";
+import { notifySuccess, notifyError } from "../../Component/Utile/notify";
 import { StoreContext } from "../Context/StoreContext";
 
 export default function Login() {
@@ -33,13 +33,13 @@ export default function Login() {
             setLoading(false);
             login(res.data.token);
             navigate("/home");
-            nostify("Success", "success");
+            notifySuccess("Login Successfully");
             localStorage.setItem("token", res.data.token);
           }
         })
         .catch((error) => {
           setLoading(false);
-          nostify("Something went wrong. Please try again! ", "error");
+          notifyError("Invalid Email or Password");
         });
     },
   });

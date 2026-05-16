@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../Context/StoreContext";
-import { nostify } from "../Utile/notify";
+import { notifySuccess, notifyError } from "../../Component/Utile/notify";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import WishlistStyle from "./WishlistStyle.css";
 
 export default function WishList() {
   let { getWishlist, deleteWishList, changeCart } = useContext(StoreContext);
@@ -26,7 +27,7 @@ export default function WishList() {
     try {
       let response = await deleteWishList(productId);
       setwishList((prev) => prev.filter((item) => item._id !== productId));
-      nostify("Product Deleted", "error");
+      notifyError("Product Deleted");
     } catch (error) {
       console.log(error);
     }
@@ -37,7 +38,7 @@ export default function WishList() {
       setLoading(productId);
       let response = await changeCart(productId);
       console.log("Added to cart:", response);
-      nostify("Product added successfully", "success");
+      notifySuccess("Product Added To Cart");
     } catch (error) {
       console.log(error);
     } finally {

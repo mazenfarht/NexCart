@@ -1,0 +1,155 @@
+/* ================= SECTION ================= */
+
+.contact-section {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  background: #050505;
+
+  padding: 60px 0;
+}
+
+/* ================= BOX ================= */
+
+.contact-box {
+  width: 100%;
+  max-width: 700px;
+
+  margin: auto;
+
+  background: #111111;
+
+  border: 1px solid #1f1f1f;
+
+  border-radius: 24px;
+
+  padding: 40px;
+
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ================= TITLE ================= */
+
+.contact-title {
+  color: white;
+
+  font-size: 42px;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+  text-align: center;
+}
+
+.contact-title span {
+  color: var(--main-color);
+}
+
+.contact-subtitle {
+  color: #9ca3af;
+
+  text-align: center;
+
+  margin-bottom: 40px;
+}
+
+/* ================= LABELS ================= */
+
+label {
+  color: white;
+
+  margin-bottom: 10px;
+
+  display: block;
+
+  font-weight: 500;
+}
+
+/* ================= INPUTS ================= */
+
+.contact-input {
+  background: #181818 !important;
+
+  border: 1px solid #2a2a2a !important;
+
+  color: white !important;
+
+  border-radius: 14px !important;
+
+  padding: 14px 18px !important;
+
+  transition: 0.3s ease;
+
+  box-shadow: none !important;
+}
+
+/* PLACEHOLDER */
+
+.contact-input::placeholder {
+  color: #777;
+}
+
+/* FOCUS */
+
+.contact-input:focus {
+  border-color: var(--main-color) !important;
+
+  box-shadow: 0 0 0 4px rgba(10, 173, 10, 0.15) !important;
+}
+
+/* TEXTAREA */
+
+.textarea {
+  resize: none;
+}
+
+/* ================= BUTTON ================= */
+
+.contact-btn {
+  width: 100%;
+
+  background: var(--main-color);
+
+  color: white;
+
+  border: none;
+
+  padding: 15px;
+
+  border-radius: 14px;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 20px rgba(10, 173, 10, 0.35);
+}
+
+/* ================= ERRORS ================= */
+
+.error-message {
+  color: #ff4d4d;
+
+  margin-top: 8px;
+
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .contact-box {
+    padding: 25px;
+  }
+
+  .contact-title {
+    font-size: 32px;
+  }
+}

@@ -4,15 +4,12 @@ import React, { useState } from "react";
 import * as Yup from "yup";
 import { baseUrl } from "../Utile/baseUrl";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { notifySuccess, notifyError } from "../../Component/Utile/notify";
 
 export default function Register() {
   let navigat = useNavigate();
   let [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const notify = (msg, type) => {
-    toast[type](msg);
-  };
 
   let validationSchema = Yup.object({
     name: Yup.string()
@@ -49,13 +46,13 @@ export default function Register() {
         .then((res) => {
           if (res.status === 201) {
             setLoading(false);
-            notify("Success", "success");
+            notifySuccess("Account Created Successfully");
             navigat("/login");
           }
         })
         .catch((error) => {
           setLoading(false);
-          notify(error.response.data.message, "error");
+          notifyError(error.response.data.message, "error");
         });
     },
   });

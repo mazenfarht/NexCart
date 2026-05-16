@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../Context/StoreContext";
 import Loading from "../Loading/Loading";
-import { nostify } from "../Utile/notify";
+import { notifyWarning } from "../../Component/Utile/notify";
 import { Link } from "react-router-dom";
-
+import CartStyle from "./CartStyle.css";
 export default function Cart() {
   let { getCart, deleteProduct, updateQty } = useContext(StoreContext);
   let [cart, setCart] = useState([]);
@@ -29,7 +29,7 @@ export default function Cart() {
       let response = await deleteProduct(productId);
       setCart(response.data.products);
       setPriceTotal(response.data.totalCartPrice);
-      nostify("Product Deleted", "error");
+      notifyWarning("Product Removed");
     } catch (error) {
       console.log(error);
     }

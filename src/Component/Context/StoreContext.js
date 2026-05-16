@@ -48,7 +48,10 @@ export default function StoreContextProvider({ children }) {
     let token = localStorage.getItem("token");
     return axios
       .delete(`${baseUrl}/cart/${productId}`, { headers: { token } })
-      .then((res) => res.data)
+      .then((res) => {
+        setcartCount(res.data.numOfCartItems);
+        return res.data;
+      })
       .catch((error) => error);
   }
 
@@ -62,7 +65,10 @@ export default function StoreContextProvider({ children }) {
           headers: { token },
         }
       )
-      .then((res) => res.data)
+      .then((res) => {
+        setcartCount(res.data.numOfCartItems);
+        return res.data;
+      })
       .catch((error) => error);
   }
 

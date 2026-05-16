@@ -14,6 +14,7 @@ import CheckOut from "./Component/CheckOut/CheckOut";
 import ProtectedRoute from "./Component/ProtectedRoute/ProtectedRoute";
 import CategoriePage from "./Component/Categories/CategoriePage";
 import WishList from "./Component/WishList/WishList";
+import ContactUs from "./Component/ContactUS/ContactUs";
 export default function App() {
   let routes = createBrowserRouter([
     {
@@ -69,6 +70,14 @@ export default function App() {
           element: (
             <ProtectedRoute>
               <WishList />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "contactus",
+          element: (
+            <ProtectedRoute>
+              <ContactUs />
             </ProtectedRoute>
           ),
         },

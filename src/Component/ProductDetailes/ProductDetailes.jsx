@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { baseUrl } from "../Utile/baseUrl";
 import { useParams } from "react-router-dom";
 import { StoreContext } from "../Context/StoreContext";
-import { nostify } from "../Utile/notify";
+import { notifySuccess } from "../../Component/Utile/notify";
 
 export default function ProductDetailes() {
   let { changeCart, addWishlist } = useContext(StoreContext);
@@ -25,7 +25,7 @@ export default function ProductDetailes() {
       setLoadin(productId);
       let response = await changeCart(productId);
       console.log("Added to cart:", response);
-      nostify("Product added to Cart", "success");
+      notifySuccess("Product Added To Cart");
     } catch (error) {
       console.log(error);
     } finally {
@@ -38,7 +38,7 @@ export default function ProductDetailes() {
       setLoadin(productId);
       let response = await addWishlist(productId);
       console.log("Added to wishlist:", response);
-      nostify("Product added to WishList", "success");
+      notifySuccess("Product Added To WishList");
     } catch (error) {
       console.log(error.response.data);
     } finally {

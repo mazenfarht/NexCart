@@ -1,0 +1,194 @@
+/* ================= FOOTER ================= */
+
+.footer {
+  background: #070707;
+  padding: 80px 0 30px;
+  border-top: 1px solid #1c1c1c;
+}
+
+/* ================= LOGO ================= */
+
+.footer-logo {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-logo span {
+  color: var(--main-color);
+}
+
+/* ================= TEXT ================= */
+
+.footer-text {
+  color: #9ca3af;
+  line-height: 1.8;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+/* ================= TITLES ================= */
+
+.footer-title {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ================= LINKS ================= */
+
+.footer-links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.footer-links a:hover {
+  color: var(--main-color);
+  padding-left: 5px;
+}
+
+/* ================= SOCIAL ICONS ================= */
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-socials a {
+  width: 42px;
+  height: 42px;
+  background: #111111;
+  border: 1px solid #222;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  transition: 0.3s;
+}
+
+.footer-socials a:hover {
+  background: var(--main-color);
+  transform: translateY(-4px);
+}
+
+/* ================= NEWSLETTER ================= */
+
+.footer-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-form input {
+  flex: 1;
+  min-width: 220px;
+
+  background: #111111;
+  border: 1px solid #222;
+
+  color: white;
+
+  padding: 14px 18px;
+  border-radius: 12px;
+
+  outline: none;
+}
+
+.footer-form input:focus {
+  border-color: var(--main-color);
+}
+
+.footer-form button {
+  background: var(--main-color);
+  color: white;
+
+  border: none;
+
+  padding: 14px 22px;
+  border-radius: 12px;
+
+  transition: 0.3s;
+}
+
+.footer-form button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* ================= BOTTOM FOOTER ================= */
+
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 25px;
+
+  border-top: 1px solid #1c1c1c;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  color: #777;
+  margin: 0;
+}
+
+/* ================= PAYMENT ICONS ================= */
+
+.footer-payments {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-payments i {
+  font-size: 30px;
+  color: #9ca3af;
+
+  transition: 0.3s;
+}
+
+.footer-payments i:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-form {
+    justify-content: center;
+  }
+}
