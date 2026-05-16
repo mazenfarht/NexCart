@@ -3,7 +3,7 @@ import { StoreContext } from "../Context/StoreContext";
 import { notifySuccess, notifyError } from "../../Component/Utile/notify";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
-import WishlistStyle from "./WishlistStyle.css";
+import "./WishlistStyle.css";
 
 export default function WishList() {
   let { getWishlist, deleteWishList, changeCart } = useContext(StoreContext);

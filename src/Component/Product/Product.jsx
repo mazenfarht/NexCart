@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../Context/StoreContext";
 import { notifySuccess, notifyInfo } from "../../Component/Utile/notify";
-import ProductStyle from "./ProductStyle.css";
+import "./ProductStyle.css";
 export default function Product({ product }) {
   let { changeCart, addWishlist } = useContext(StoreContext);
   let [loadingId, setLoadinId] = useState(null);
