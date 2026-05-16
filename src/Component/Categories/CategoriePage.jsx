@@ -48,9 +48,6 @@ export default function CategoriePage() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    getProductsByCategory();
-  }, []);
-  useEffect(() => {
     if (id) getProductsByCategory();
   }, [id]);
 

@@ -46,6 +46,7 @@ export default function ProductDetailes() {
     }
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     getProduct();
   }, []);
