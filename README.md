@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# NexCart Ecommerce
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Modern dark mode ecommerce web application built with React and Bootstrap.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+* 🔐 Authentication System
 
-### `npm start`
+  * User Login
+  * User Register
+  * Protected Routes
+  * Logout System
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* 🛒 Shopping Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  * Add products to cart
+  * Update cart items
+  * Remove products from cart
+  * Wishlist system
+  * Product details page
 
-### `npm test`
+* 💳 Online Payment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  * Stripe payment integration
+  * Visa card checkout
+  * Secure payment flow
 
-### `npm run build`
+* 📩 Contact System
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  * Contact Us page
+  * Form validation using Formik + Yup
+  * Success notifications
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* 🎨 UI / UX
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  * Modern dark mode design
+  * Fully responsive on all devices
+  * Sticky modern navbar
+  * Scroll to top button
+  * Toast notifications
+  * Clean component-based structure
 
-### `npm run eject`
+## 🛠️ Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* React
+* React Router DOM
+* Bootstrap
+* Context API
+* Axios
+* Formik
+* Yup
+* React Toastify
+* Stripe API
+* Font Awesome
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ▶️ Run Project
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+## 🔑 Environment Variables
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create `.env` file:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```env
+VITE_API_URL=your_api_url
+VITE_STRIPE_PUBLIC_KEY=your_stripe_key
+```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🌐 API Integration
 
-### Analyzing the Bundle Size
+The project is integrated with a real ecommerce API for:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Authentication
+* Products
+* Cart
+* Wishlist
+* Orders
+* Payments
 
-### Making a Progressive Web App
+## 💳 Stripe Payment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Stripe is integrated for secure online payments using Visa cards.
 
-### Advanced Configuration
+## 📱 Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The website is fully responsive and works perfectly on:
 
-### Deployment
+* Mobile Devices
+* Tablets
+* Laptops
+* Desktop Screens
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📸 Screenshots
 
-### `npm run build` fails to minify
+# Login Page :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="1897" height="696" alt="L" src="https://github.com/user-attachments/assets/b63c28fb-0919-4c4c-9ab2-b4862954a320" />
+
+# Register Page : 
+
+<img width="1880" height="881" alt="R" src="https://github.com/user-attachments/assets/ca44ee3e-8071-4e7c-a12b-3f272daf7391" />
+
+# Home Page : 
+
+<img width="1893" height="873" alt="H" src="https://github.com/user-attachments/assets/9e03231c-a208-47af-a8e3-e66f48f7db4e" />
+
+# Products Page :
+
+<img width="1890" height="830" alt="P" src="https://github.com/user-attachments/assets/e82e433d-d21f-4108-8310-69d0418cb54b" />
+
+# Products-Detailes Page : 
+
+<img width="1887" height="858" alt="P-D" src="https://github.com/user-attachments/assets/11d247bf-6334-48a3-9cae-581d9142f767" />
+
+# Category Page : 
+
+<img width="1567" height="870" alt="CA" src="https://github.com/user-attachments/assets/e2cc6612-50b3-43a4-a3e5-bc6e14a0bb52" />
+
+# Cart Page : 
+
+<img width="1883" height="748" alt="C" src="https://github.com/user-attachments/assets/05807d15-951e-4e30-8891-7ae310af3090" />
+
+# WishList Page : 
+
+<img width="1887" height="692" alt="W" src="https://github.com/user-attachments/assets/d6e9c437-d732-4ad4-9c76-334d780c7367" />
+
+# Checkout Page :
+
+<img width="1880" height="708" alt="ch" src="https://github.com/user-attachments/assets/1982cabf-6488-4ec8-91f5-4a2f34195266" />
+<img width="1712" height="822" alt="ch1" src="https://github.com/user-attachments/assets/9b56aa0f-b912-4c12-affe-eb698bd34c24" />
+
+# Footer :
+
+<img width="1898" height="533" alt="F" src="https://github.com/user-attachments/assets/af32e498-c2c5-4ff4-a652-b00113f200a8" />
+
+
+## 👨‍💻 Author
+
+Developed by Mazen-Mostafa.
